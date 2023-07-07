@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* CSS để căn giữa hộp quà */
+        .container {
+            background-color: hotpink;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* CSS cho hộp quà */
+        .gift-box {
+            width: 400px;
+            height: 400px;
+            background-image: url('hopm (3).png');
+            background-size: cover;
+            cursor: pointer;
+            position: relative;
+        }
+
+        /* CSS cho hình ảnh phóng to */
+        .zoom-image {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 2s;
+        }
+        @media (max-width: 480px) {
+            .container {
+                height: auto;
+                padding: 20px;
+            }
+
+            .gift-box, .zoom-image {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="gift-box" onclick="zoomIn()"></div>
+        <img class="zoom-image" src="hopm (2).png">
+    </div>
+
+    <script>
+        function zoomIn() {
+            var giftBox = document.querySelector('.gift-box');
+            var zoomImage = document.querySelector('.zoom-image');
+
+            giftBox.style.display = 'none';
+            zoomImage.style.display = 'block';
+
+            setTimeout(function() {
+                zoomImage.style.transform = 'translate(-50%, -50%) scale(0.5)';
+            }, 100);
+        }
+    </script>
+</body>
+</html>
